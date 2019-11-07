@@ -3,12 +3,16 @@
 {% block body %}
 <div class="grid-100">
   <ul class="minerals__container">
+    {% if minerals %}
     {% for mineral in minerals %}
     <li class="minerals__item">
       <a class="minerals__anchor" 
-      href="#">{{ mineral.name }}</a>
+      href="{% url 'mineralsearch:detail' pk=mineral.pk %}">{{ mineral.name }}</a>
     </li>
     {% endfor %}
+    {% else %}
+    <li class="minerals__item message">No matching minerals found!</li>
+    {% endif %}
   </ul>
 </div>
 {% endblock %}

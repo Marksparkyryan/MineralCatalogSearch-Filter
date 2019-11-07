@@ -28,15 +28,64 @@
       <p class="logo__text text-centered">They're not rocks!</p>
     </div>
 
+  
+
     <!--  Pagination List -->
     <div class="grid-100">
-        <div class="pagin-list">
-            {% for letter in pagin_list %}
-            <a href="{% url 'mineralsearch:firstletter' letter=letter %}">{{ letter }}</a>
-            {% endfor %}
+        <div class="search-container">
+                <div class="pagin-list">
+                        {% for letter in pagination_list %}
+                        {% url 'mineralsearch:firstletter' letter=letter as url %}
+                        <a href="{{ url }}"
+                        {% if request.path == url %}
+                        class="active"
+                        {% endif %}
+                        >{{ letter }}</a>
+                        {% endfor %}
+                    </div>
         </div>
+        
     </div>
     <!-- /Pagination List -->
+
+      <!-- Search Form -->
+      <div class="grid-100">
+            <div class="search-container">
+                <div class="search-wrapper">
+                    <form action="{% url 'mineralsearch:search' %}" method="GET">
+                        <input type="text" name="q" 
+                        {% if query %}value="{{ query }}"{% endif %}>
+                        <button type="submit">Search</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <!-- /Search Form -->
+
+    
+
+    <!-- filtering by group -->
+    <div class="grid-100 left-container">
+            
+                <ul>
+                    <li class="">Silicates</li>
+                    <li class="">Oxides</li>
+                    <li class="">Sulfates</li>
+                    <li class="">Sulfides</li>
+                    <li class="">Carbonates</li>
+                    <li class="">Halides</li>
+                    <li class="">Sulfosalts</li>
+                    <li class="">Phosphates</li>
+                    <li class="">Borates</li>
+                    <li class="">Organic Minerals</li>
+                    <li class="">Arsenates</li>
+                    <li class="">Native Elements</li>
+                    <li class="">Other</li>
+                </ul>
+            
+        </div>
+    <!-- /filtering by group -->
+
 
 {% block body %}
 {% endblock %}

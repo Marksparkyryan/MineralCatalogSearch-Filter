@@ -4,38 +4,60 @@ from django.shortcuts import render
 from .models import Mineral
 
 
-def index(request):
-    minerals = Mineral.objects.all()
-
-    # pagination logic
-    pagin_set = sorted(set(map(lambda x: x.name[0].lower(), minerals)))
+def pagination():
+    """Finds first letter of each mineral and returns as a unique list
+    """
+    minerals = Mineral.objects.values(
+        'name'
+    ).all()
+    pagin_set = sorted(set(map(lambda x: x['name'][0].lower(), minerals)))
     pattern = re.compile(r'[a-z]')
-    valid_pagin_list = [x for x in pagin_set if pattern.match(x)]
+    return [x for x in pagin_set if pattern.match(x)]
 
+
+def index(request):
+    """View that displays all mineral objects
+    """
+    minerals = Mineral.objects.all()
+    pagination_list = pagination()
     context = {
         'minerals': minerals,
-        'pagin_list': valid_pagin_list,
+        'pagination_list': pagination_list,
     }
-
     return render(request, 'mineralsearchapp/index.html', context)
 
-def detail(request):
-    pass
+
+def detail(request, pk):
+    mineral = Mineral.objects.get(id=pk)
+    context = {
+        'mineral': mineral,
+        'pagination_list': pagination(),
+    }
+    return render(request, 'mineralsearchapp/detail.html', context)
+
 
 def firstletter(request, letter):
-    allminerals = Mineral.objects.all()
-    filteredminerals = Mineral.objects.filter(
+    """View that takes in a letter kwarg and finds all minerals that
+    start with that character
+    """
+    minerals = Mineral.objects.filter(
         name__startswith=letter
     )
-
-    # pagination logic
-    pagin_set = sorted(set(map(lambda x: x.name[0].lower(), allminerals)))
-    pattern = re.compile(r'[a-z]')
-    valid_pagin_list = [x for x in pagin_set if pattern.match(x)]
-
     context = {
-        'minerals': filteredminerals,
-        'pagin_list': valid_pagin_list,
+        'minerals': minerals,
+        'pagination_list': pagination(),
     }
-
     return render(request, 'mineralsearchapp/index.html', context)
+
+def search(request):
+    query = request.GET.get('q')
+    minerals = Mineral.objects.filter(
+        name__icontains=query
+    )
+    context = {
+        'minerals': minerals,
+        'pagination_list': pagination(),
+        'query': query,
+    }
+    return render(request, 'mineralsearchapp/index.html', context)
+

@@ -184,10 +184,10 @@ table, p, ul { margin-bottom: 2.5rem; }
 
 .minerals__container { background-color: #fff; border-radius: 6px; list-style: none; padding: 30px 30px 20px 30px; -webkit-column-gap: 30px; -moz-column-gap: 30px; column-gap: 30px; }
 @media (min-width: 440px) and (max-width: 639px) { .minerals__container { -webkit-column-count: 2; -moz-column-count: 2; column-count: 2; } }
-@media (min-width: 640px) { .minerals__container { -webkit-column-count: 3; -moz-column-count: 3; column-count: 3; } }
-.minerals__anchor { border: solid 2px #DCF5F2; border-radius: 100px; color: #384033; display: block; font-size: 13px; text-align: center; padding: 8px 0 7px 0; width: 100%; transition: background-color 200ms ease-in-out, font-weight 200ms ease-in-out, color 200ms ease-in-out; }
+@media (min-width: 640px) { .minerals__container { -webkit-column-count: 3; -moz-column-count: 3; column-count: 3;} }
+.minerals__anchor { border: solid 2px #DCF5F2; border-radius: 100px; color: #384033; display: inline-block; font-size: 13px; text-align: center; padding: 8px 0 7px 0; width: 100%; transition: background-color 200ms ease-in-out, font-weight 200ms ease-in-out, color 200ms ease-in-out; }
 .minerals__anchor:hover { background-color: #DCF5F2; color: #384033; font-weight: bold; }
-.minerals__random { background-color: #384033; box-shadow: 0 0 100px 50px #CAE5D2; color: #fff; padding: 20px 0 20px 0; position: fixed; bottom: 0; text-align: center; width: 100%; }
+.minerals__random { background-color: #988cc5; box-shadow: 0 0 100px 50px #CAE5D2; color: #fff; padding: 20px 0 20px 0; position: fixed; bottom: 0; text-align: center; width: 100%; }
 .minerals__random .minerals__anchor { display: inline; color: #fff; padding: 6px 24px 5px 24px; }
 .minerals__random .minerals__anchor:hover { color: #384033; }
 
@@ -203,8 +203,98 @@ table, p, ul { margin-bottom: 2.5rem; }
 .mineral__category { font-weight: bold; width: 40%; }
 .mineral__formula { font-size: 12px; }
 
+/* search container */
+.search-container {
+  background: rgba(103, 58, 183, 0.52);
+  border-radius: 6px;
+  padding: 5px 0;
+  margin-bottom: 20px;
+}
+
+.message {
+  margin: 0 auto;
+}
+
+/* left container */
+
+.left-container li {
+  display: inline-block;
+  padding: 5px 10px;
+  border: 2px solid  #988cc5;
+  border-radius: 20px;
+  color: #988cc5;
+}
+
+@media (min-width: 1425px) { 
+  .left-container { 
+    position: absolute;
+    transform: translateX(-700px);
+    top: 228px;
+    left: 50%; 
+    width: 300px;
+    height: auto;
+    text-align: right;
+  } 
+}
+
 /* pagination list */
-.pagin-list { margin: 15px; text-align: center;}
-.pagin-list a { border: solid 2px #DCF5F2; border-radius: 50%; color: #384033; display: inline-block; font-size: 14px; text-align: center; padding: 8px 15px 8px 15px; margin: 5px;}
-.pagin-list a:hover { background: #DCF5F2; font-weight: bold; border: solid 2px #DCF5F2; border-radius: 50%; color: #384033; display: inline-block; font-size: 14px; text-align: center; padding: 8px 15px 8px 15px; margin: 5px;}
+.pagin-list { 
+  margin: 15px; 
+  text-align: center;
+}
+.pagin-list a { 
+  border: solid 2px #DCF5F2; 
+  border-radius: 50%; 
+  color: #DCF5F2; 
+  display: inline-block; 
+  font-size: 14px; 
+  text-align: center; 
+  padding: 8px 15px 8px 15px; 
+  margin: 5px;}
+
+.pagin-list a:hover { 
+  background: #DCF5F2; 
+  font-weight: bold; 
+  border: solid 2px #DCF5F2; 
+  border-radius: 50%; 
+  color: #384033; 
+  display: inline-block; 
+  font-size: 14px; 
+  text-align: center; 
+  padding: 8px 15px 8px 15px; 
+  margin: 5px;
+}
+
+.pagin-list a.active {
+  background: #DCF5F2;
+  color: #384033;
+  font-weight: bold;
+}
+
+/* search box */
+
+.search-wrapper {
+  text-align: center;
+  padding-top: 15px;
+}
+
+.search-wrapper input {
+  display: inline-block;
+  border: solid 2px #DCF5F2; 
+  background: rgba(103, 58, 183, 0);
+  width: 50%;
+  color: #dcf5f2;
+}
+
+.search-wrapper button {
+  display: inline-block;
+  height: 40px;
+  width: 100px;
+  background: rgba(103, 58, 183, 0);
+  border: solid 2px #DCF5F2; 
+  border-radius: 6px;
+  color: #dcf5f2;
+  font-size: 14px;
+  cursor: pointer;
+}
 
