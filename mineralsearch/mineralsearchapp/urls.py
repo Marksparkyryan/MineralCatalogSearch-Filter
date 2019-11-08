@@ -11,5 +11,7 @@ urlpatterns = [
     url(r'^$', views.letter, name='home'),
     url(r'search/', views.search, name='search'),
     url(r'group/(?P<group>[\w-]+)', views.group, name='group'),
+    url(r'colour/(?P<colour>[\w-]+)', views.colour, name='colour'),
+    url(r'random/', views.random, name='random'),
 ]
 

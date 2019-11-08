@@ -7,38 +7,19 @@
       <h1 class="mineral__name">{{ mineral.name }}</h1>
       <div class="mineral__image-bg">
         <img class="mineral__image" src="{% static 'mineralsearchapp/images/' %}{{ mineral.name }}.jpg">
-        <p class="mineral__caption">{{ mineral.caption }}</p>
+        <p class="mineral__caption">{{ mineral.image_caption }}</p>
       </div>
       <div class="mineral__table-container">
         <table class="mineral__table">
+          {% for key, value in fields.items %}
+          {% if value %}
           <tr>
-            <td class="mineral__category">Category</td>
-            <td>{{ mineral.category }}</td>
+            <td class="mineral__category">{{ key|title }}</td>
+            <td>{{ value|safe }}</td>
           </tr>
-          <tr>
-            <td class="mineral__category">Formula</td>
-            <td class="mineral__formula">{{ mineral.formula|safe }}</td>
-          </tr>
-          <tr>
-            <td class="mineral__category">Strunz Classification</td>
-            <td>09.DB.45</td>
-          </tr>
-          <tr>
-            <td class="mineral__category">Unit Cell</td>
-            <td>a = 14.690(15) Å, b = 16.872(15) Å, c = 5.170(15) Å, Z = 2</td>
-          </tr>
-          <tr>
-            <td class="mineral__category">Color</td>
-            <td>Blue to blue-green</td>
-          </tr>
-          <tr>
-            <td class="mineral__category">Crystal Habit</td>
-            <td>fibrous</td>
-          </tr>
-          <tr>
-            <td class="mineral__category">Mohs Scale Hardness</td>
-            <td>3</td>
-          </tr>
+          {% endif %}
+          {% endfor %}
+      
         </table>
       </div>
     </div>

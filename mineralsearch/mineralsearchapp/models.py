@@ -26,3 +26,19 @@ class Mineral(models.Model):
 
     def __str__(self):
         return self.name
+    
+    @property
+    def fields_lower(self):
+        """retrieve all fields on instance, strip out underscores in 
+        field name (meta fields have underscores), then return a list of 
+        all these cleaned field names
+        """  
+        cleaned_fields = {}
+        for field in self._meta.fields:
+            if field.name not in ('image_filename', 'image_caption', 'id', 'name'):
+                if field.value_to_string(self):
+                    without_underscores = field.name.replace("_", " ")
+                    cleaned_fields.update(
+                        {without_underscores: field.value_to_string(self)}
+                    )
+        return cleaned_fields

@@ -62,30 +62,49 @@
         </div>
         <!-- /Search Form -->
 
-    <!-- filtering by group -->
-    <div class="grid-100 left-container">
-      
-        {% for group in groups %}
-        
-          <a href="{% url 'mineralsearch:group' group=group %}" 
-          {% if groupquery == group %}class="active"{% endif %}
-          >{{ group }}</a>
-        
-        {% endfor %}
-      
-        </div>
-    <!-- /filtering by group -->
+    
 
 
 {% block body %}
 {% endblock %}
 
+<!-- filtering by group -->
+<div class="grid-100 group-container">
+      
+  {% for group in groups %}
+  
+    <a href="{% url 'mineralsearch:group' group=group %}" 
+    {% if groupquery == group %}class="active"{% endif %}
+    >{{ group }}</a>
+  
+  {% endfor %}
+
+  </div>
+<!-- /filtering by group -->
+
+<!-- filtering by colour -->
+<div class="grid-100 colour-container">
+      
+  {% for colour in colours %}
+  
+    <a href="{% url 'mineralsearch:colour' colour=colour %}" 
+    {% if colourquery == colour %}class="active"{% endif %}
+    >{{ colour }}</a>
+  
+  {% endfor %}
+
+  </div>
+<!-- /filtering by colour-->
+
   </div>
 
 
-<div class="minerals__random">
-    <a class="minerals__anchor" href="{% url 'mineralsearch:home' %}">Home</a>
-    <a class="minerals__anchor" href="#">Show random mineral</a>
+    <div class="minerals__random">
+      <a class="minerals__anchor" href="{% url 'mineralsearch:home' %}">Home</a>
+      <a class="minerals__anchor" href="{% url 'mineralsearch:random' %}}">Show random mineral</a>
+      <a class="minerals__anchor" href="#">Top</a>
     </div>
+
+    
 </body>
 </html>
