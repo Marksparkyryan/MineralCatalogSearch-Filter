@@ -2,7 +2,8 @@
 {% load staticfiles %}
 
 {% block body %}
-    <div class="grid-100 mineral__container">
+  <div class="grid-100">
+    <div class="mineral__container">
       <h1 class="mineral__name">{{ mineral.name }}</h1>
       <div class="mineral__image-bg">
         <img class="mineral__image" src="{% static 'mineralsearchapp/images/' %}{{ mineral.name }}.jpg">
@@ -41,4 +42,5 @@
         </table>
       </div>
     </div>
+  </div>
 {% endblock %}

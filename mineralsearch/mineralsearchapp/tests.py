@@ -87,3 +87,11 @@ class ViewTests(TestCase):
         self.assertEqual(resp.status_code, 200)
         self.assertTemplateUsed(resp, 'mineralsearchapp/index.html')
         self.assertEqual(len(resp.context['minerals']), 2)
+
+    def test_search_response(self):
+        """make sure search view is found and rendered"""
+        resp = self.client.get(
+            reverse('mineralsearch:search', args={'q': 'abel'})
+        )
+        self.assertEqual(resp.status_code, 200)
+        self.assertTemplateUsed(resp, 'mineralsearchapp/index.html')
