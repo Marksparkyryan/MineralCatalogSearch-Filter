@@ -61,6 +61,8 @@ def letter(request, letter='a'):
         'pk'
     ).filter(
         name__startswith=letter
+    ).order_by(
+        'name'
     )
     form = MineralSearchForm()
     context = {
@@ -81,7 +83,10 @@ def search(request):
         form = MineralSearchForm(request.GET)
         if form.is_valid():
             query = form.cleaned_data['q']
-            minerals = Mineral.objects.filter(
+            minerals = Mineral.objects.values(
+                'name',
+                'pk'
+            ).filter(
                 Q(name__icontains=query) |
                 Q(image_caption__icontains=query) |
                 Q(category__icontains=query) |
@@ -101,6 +106,8 @@ def search(request):
                 Q(refractive_index__icontains=query) |
                 Q(crystal_habit__icontains=query) |
                 Q(specific_gravity__icontains=query)
+            ).order_by(
+                'name'
             )
             context = {
                 'minerals': minerals,
@@ -113,7 +120,7 @@ def search(request):
     minerals = Mineral.objects.values(
         'name',
         'pk'
-    ).all(),
+    ).all()
     context = {
             'minerals': minerals,
             'pagination_list': ALPHABET,
@@ -157,3 +164,4 @@ def colour(request, colour):
         'colours': COLOURS,
     }
     return render(request, 'mineralsearchapp/index.html', context)
+    
