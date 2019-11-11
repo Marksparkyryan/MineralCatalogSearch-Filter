@@ -20,6 +20,9 @@ ALPHABET = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm',
 
 
 def detail(request, pk):
+    """View that accepts a mineral pk and displays the details of that
+    particular mineral. Returns 404 if mineral doesn't exist.
+    """
     mineral = Mineral.objects.get(id=pk)
     fields = mineral.fields_lower
     context = {
@@ -33,6 +36,8 @@ def detail(request, pk):
     return render(request, 'mineralsearchapp/detail.html', context)
 
 def random(request):
+    """View that returns a random mineral and its details
+    """
     minerals = Mineral.objects.aggregate(
         number_of_minerals=Max('id')
     )
@@ -135,6 +140,9 @@ def search(request):
 
 
 def group(request, group):
+    """View that accepts a group query and returns a queryset of 
+    minerals filtered on the group field
+    """
     minerals = Mineral.objects.values(
         'name',
         'pk'
@@ -152,6 +160,9 @@ def group(request, group):
     return render(request, 'mineralsearchapp/index.html', context)
 
 def colour(request, colour):
+    """View that accepts a colour query and returns a queryset of 
+    minerals filtered on the colour field
+    """
     minerals = Mineral.objects.values(
         'name',
         'pk'
