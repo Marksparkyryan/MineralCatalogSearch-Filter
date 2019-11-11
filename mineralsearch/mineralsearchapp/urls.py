@@ -14,4 +14,3 @@ urlpatterns = [
     url(r'colour/(?P<colour>[\w-]+)', views.colour, name='colour'),
     url(r'random/', views.random, name='random'),
 ]
-
