@@ -59,10 +59,6 @@ class DetailViewTests(TestCase):
             reverse('mineralsearch:detail', kwargs={'pk': 1}))
         self.assertIsInstance(resp.context['mineral'], Mineral)
 
-    # def test_mineral_info_is_rendered(self):
-    #     resp = self.client.get(reverse('mineralsearch:detail', kwargs={'pk': 1}))
-    #     self.assertIn(resp.context['mineral']._meta.fields, resp.content)
-
 
 class RandomViewTests(TestCase):
     fixtures = ['test_data.json']
