@@ -79,6 +79,7 @@ def search(request):
     """View that accepts q query from the MineralSearchForm and filters
     mineral names on that query
     """
+    form = MineralSearchForm()
     if request.method == 'GET':
         form = MineralSearchForm(request.GET)
         if form.is_valid():

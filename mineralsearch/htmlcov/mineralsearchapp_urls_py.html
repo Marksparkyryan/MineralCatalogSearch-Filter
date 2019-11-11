@@ -80,6 +80,10 @@
 <p id="n11" class="pln"><a href="#n11">11</a></p>
 <p id="n12" class="pln"><a href="#n12">12</a></p>
 <p id="n13" class="pln"><a href="#n13">13</a></p>
+<p id="n14" class="pln"><a href="#n14">14</a></p>
+<p id="n15" class="pln"><a href="#n15">15</a></p>
+<p id="n16" class="pln"><a href="#n16">16</a></p>
+<p id="n17" class="pln"><a href="#n17">17</a></p>
 
             </td>
             <td class="text">
@@ -91,11 +95,15 @@
 <p id="t6" class="stm run hide_run"><span class="nam">app_name</span><span class="op">=</span><span class="str">'mineralsearch'</span><span class="strut">&nbsp;</span></p>
 <p id="t7" class="pln"><span class="strut">&nbsp;</span></p>
 <p id="t8" class="stm run hide_run"><span class="nam">urlpatterns</span> <span class="op">=</span> <span class="op">[</span><span class="strut">&nbsp;</span></p>
-<p id="t9" class="pln">    <span class="nam">url</span><span class="op">(</span><span class="str">r'index/$'</span><span class="op">,</span> <span class="nam">views</span><span class="op">.</span><span class="nam">index</span> <span class="op">,</span> <span class="nam">name</span><span class="op">=</span><span class="str">'index'</span><span class="op">)</span><span class="op">,</span><span class="strut">&nbsp;</span></p>
-<p id="t10" class="pln">    <span class="nam">url</span><span class="op">(</span><span class="str">r'detail/$'</span><span class="op">,</span> <span class="nam">views</span><span class="op">.</span><span class="nam">detail</span><span class="op">,</span> <span class="nam">name</span><span class="op">=</span><span class="str">'detail'</span><span class="op">)</span><span class="op">,</span><span class="strut">&nbsp;</span></p>
-<p id="t11" class="pln">    <span class="nam">url</span><span class="op">(</span><span class="str">r'letter/(?P&lt;letter>[a-z]{1})'</span><span class="op">,</span> <span class="nam">views</span><span class="op">.</span><span class="nam">firstletter</span><span class="op">,</span> <span class="nam">name</span><span class="op">=</span><span class="str">'firstletter'</span><span class="op">)</span><span class="op">,</span><span class="strut">&nbsp;</span></p>
-<p id="t12" class="pln"><span class="op">]</span><span class="strut">&nbsp;</span></p>
-<p id="t13" class="pln"><span class="strut">&nbsp;</span></p>
+<p id="t9" class="pln">    <span class="nam">url</span><span class="op">(</span><span class="str">r'detail/(?P&lt;pk>\d+)$'</span><span class="op">,</span> <span class="nam">views</span><span class="op">.</span><span class="nam">detail</span><span class="op">,</span> <span class="nam">name</span><span class="op">=</span><span class="str">'detail'</span><span class="op">)</span><span class="op">,</span><span class="strut">&nbsp;</span></p>
+<p id="t10" class="pln">    <span class="nam">url</span><span class="op">(</span><span class="str">r'letter/(?P&lt;letter>[a-z]$)'</span><span class="op">,</span> <span class="nam">views</span><span class="op">.</span><span class="nam">letter</span><span class="op">,</span> <span class="nam">name</span><span class="op">=</span><span class="str">'letter'</span><span class="op">)</span><span class="op">,</span><span class="strut">&nbsp;</span></p>
+<p id="t11" class="pln">    <span class="nam">url</span><span class="op">(</span><span class="str">r'^$'</span><span class="op">,</span> <span class="nam">views</span><span class="op">.</span><span class="nam">letter</span><span class="op">,</span> <span class="nam">name</span><span class="op">=</span><span class="str">'home'</span><span class="op">)</span><span class="op">,</span><span class="strut">&nbsp;</span></p>
+<p id="t12" class="pln">    <span class="nam">url</span><span class="op">(</span><span class="str">r'search/'</span><span class="op">,</span> <span class="nam">views</span><span class="op">.</span><span class="nam">search</span><span class="op">,</span> <span class="nam">name</span><span class="op">=</span><span class="str">'search'</span><span class="op">)</span><span class="op">,</span><span class="strut">&nbsp;</span></p>
+<p id="t13" class="pln">    <span class="nam">url</span><span class="op">(</span><span class="str">r'group/(?P&lt;group>[\w-]+)'</span><span class="op">,</span> <span class="nam">views</span><span class="op">.</span><span class="nam">group</span><span class="op">,</span> <span class="nam">name</span><span class="op">=</span><span class="str">'group'</span><span class="op">)</span><span class="op">,</span><span class="strut">&nbsp;</span></p>
+<p id="t14" class="pln">    <span class="nam">url</span><span class="op">(</span><span class="str">r'colour/(?P&lt;colour>[\w-]+)'</span><span class="op">,</span> <span class="nam">views</span><span class="op">.</span><span class="nam">colour</span><span class="op">,</span> <span class="nam">name</span><span class="op">=</span><span class="str">'colour'</span><span class="op">)</span><span class="op">,</span><span class="strut">&nbsp;</span></p>
+<p id="t15" class="pln">    <span class="nam">url</span><span class="op">(</span><span class="str">r'random/'</span><span class="op">,</span> <span class="nam">views</span><span class="op">.</span><span class="nam">random</span><span class="op">,</span> <span class="nam">name</span><span class="op">=</span><span class="str">'random'</span><span class="op">)</span><span class="op">,</span><span class="strut">&nbsp;</span></p>
+<p id="t16" class="pln"><span class="op">]</span><span class="strut">&nbsp;</span></p>
+<p id="t17" class="pln"><span class="strut">&nbsp;</span></p>
 
             </td>
         </tr>
@@ -106,7 +114,7 @@
     <div class="content">
         <p>
             <a class="nav" href="index.html">&#xab; index</a> &nbsp; &nbsp; <a class="nav" href="https://coverage.readthedocs.io">coverage.py v4.5.4</a>,
-            created at 2019-11-06 21:12
+            created at 2019-11-11 00:23
         </p>
     </div>
 </div>

@@ -35,8 +35,7 @@
         <div class="search-container">
                 <div class="pagin-list">
                         {% for letter in pagination_list %}
-                        {% url 'mineralsearch:letter' letter=letter as url %}
-                        <a href="{{ url }}"
+                        <a href="{% url 'mineralsearch:letter' letter %}"
                         {% if alphaquery == letter %}
                         class="active"
                         {% endif %}
