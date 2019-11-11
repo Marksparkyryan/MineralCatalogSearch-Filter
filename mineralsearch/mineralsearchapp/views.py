@@ -95,7 +95,7 @@ def search(request):
                 Q(strunz_classification__icontains=query) |
                 Q(crystal_system__icontains=query) |
                 Q(unit_cell__icontains=query) |
-                Q(color__exact=query) |
+                Q(color__icontains=query) |
                 Q(crystal_symmetry__icontains=query) |
                 Q(cleavage__icontains=query) |
                 Q(mohs_scale_hardness__icontains=query) |
@@ -121,7 +121,9 @@ def search(request):
     minerals = Mineral.objects.values(
         'name',
         'pk'
-    ).all()
+    ).order_by(
+        'name'
+    )
     context = {
             'minerals': minerals,
             'pagination_list': ALPHABET,

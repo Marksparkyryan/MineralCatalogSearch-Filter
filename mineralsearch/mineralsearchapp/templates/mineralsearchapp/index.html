@@ -7,7 +7,7 @@
     {% for mineral in minerals %}
     <li class="minerals__item">
       <a class="minerals__anchor" 
-      href="{% url 'mineralsearch:detail' pk=mineral.pk %}">{{ mineral.name }}</a>
+      href="{% url 'mineralsearch:detail' pk=mineral.pk %}">{{ mineral.name|title }}</a>
     </li>
     {% endfor %}
     {% else %}

@@ -16,14 +16,10 @@ class Migration(migrations.Migration):
         """fetches and reads minerals.json if not in testing mode. Json 
         objects are then loaded into the database.
         """
-        try:
-            if django.test:
-                pass
-
-        except AttributeError:
+        if 'test' not in sys.argv:
             Mineral = apps.get_model('mineralsearchapp', 'Mineral')
             with open(os.path.join(BASE_DIR, "minerals.json"),
-                      encoding="utf-8") as jsonfile:
+                        encoding="utf-8") as jsonfile:
                 json_reader = json.load(jsonfile)
                 json_length = len(json_reader)
                 successful = 0
@@ -36,6 +32,8 @@ class Migration(migrations.Migration):
                         else:
                             newkey = key.replace(' ', '_')
                             mineral[newkey] = mineral.pop(key)
+                    mineral['name'] = mineral['name'].lower()
+                    print(mineral['name']) 
                     try:
                         with transaction.atomic():
                             Mineral.objects.create(**mineral)
@@ -56,5 +54,5 @@ class Migration(migrations.Migration):
     ]
 
     operations = [
-        migrations.RunPython(populate_db)
+        migrations.RunPython(populate_db),
     ]
