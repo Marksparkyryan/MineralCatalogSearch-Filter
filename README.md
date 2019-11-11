@@ -31,3 +31,28 @@ By default, there is a django-debug-toolbar app installed for continued testing.
 <br/>
 
 # screenshots
+<br/>
+fullscreen view of the web app
+<img width="2047" alt="Screen Shot 2019-11-11 at 5 18 20 PM" src="https://user-images.githubusercontent.com/45185244/68626450-63e29800-04a9-11ea-9b69-50a671286e5d.png">
+
+<br/>
+filtering by mineral group
+<img width="518" alt="Screen Shot 2019-11-11 at 5 19 48 PM" src="https://user-images.githubusercontent.com/45185244/68626480-74930e00-04a9-11ea-9011-a2d9fd9e8da4.png">
+
+<br/>
+filtering by mineral colour
+<img width="518" alt="Screen Shot 2019-11-11 at 5 20 11 PM" src="https://user-images.githubusercontent.com/45185244/68626503-7f4da300-04a9-11ea-9186-c4e0bce2c950.png">
+
+<br/>
+searching all fields for terms
+<img width="518" alt="Screen Shot 2019-11-11 at 5 20 39 PM" src="https://user-images.githubusercontent.com/45185244/68626530-8a083800-04a9-11ea-92a9-a702ec4554e1.png">
+
+<br/>
+responsive view
+<img width="413" alt="Screen Shot 2019-11-11 at 5 21 50 PM" src="https://user-images.githubusercontent.com/45185244/68626710-f5eaa080-04a9-11ea-9037-d21091d5e786.png">
+
+<br/>
+responsive view 2
+<img width="413" alt="Screen Shot 2019-11-11 at 5 22 15 PM" src="https://user-images.githubusercontent.com/45185244/68626729-000c9f00-04aa-11ea-8676-e599fad045f9.png">
+
+
