@@ -6,7 +6,7 @@ from django.core.urlresolvers import reverse
 
 from ..models import Mineral
 from ..forms import MineralSearchForm
-from ..views import GROUPS, COLOURS, ALPHABET
+from ..templatetags.mineral_extras import GROUPS, COLOURS, ALPHABET
 
 
 class GlobalsTests(TestCase):
@@ -144,13 +144,20 @@ class LetterViewTests(TestCase):
     
     def test_alpha_order(self):
         resp = self.client.get(
-            reverse('mineralsearch:letter', kwargs={'letter': 'c'}))
+            reverse('mineralsearch:letter', kwargs={'letter': 'c'})
+        )
         context = [x['name'] for x in resp.context['minerals']]
         elements = self.c_elements
         self.assertSequenceEqual(context, elements)
         
     def test_content_contains_context(self):
-        pass
+        resp = self.client.get(
+            reverse('mineralsearch:letter', kwargs={'letter': 'c'})
+        )
+        self.assertInHTML(
+            '<a class="minerals__anchor" href="/detail/148">Cacoxenite</a>',
+            resp.content.decode('utf-8')
+        )
 
 
 class SearchViewTests(TestCase):
@@ -167,7 +174,6 @@ class SearchViewTests(TestCase):
         self.assertEqual(resp.status_code, 200)
 
     def test_named_url(self):
-        form = MineralSearchForm(data={'q': 'gold'})
         resp = self.client.get(reverse('mineralsearch:search'),
                                data={'q': 'gold'})
         self.assertEqual(resp.status_code, 200)

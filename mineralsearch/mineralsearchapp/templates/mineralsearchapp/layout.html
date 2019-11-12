@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 
+{% load mineral_extras %}
 {% load staticfiles %}
 
 <html lang="en">
@@ -33,7 +34,7 @@
     <div class="grid-100">
       <div class="search-container">
         <div class="pagin-list">
-          {% for letter in pagination_list %}
+          {% for letter in alphabet %}
           <a href="{% url 'mineralsearch:letter' letter %}" {% if alphaquery == letter %} class="active"
             {% endif %}>{{ letter }}</a>
           {% endfor %}
@@ -61,10 +62,13 @@
 
     <!-- filtering by group -->
     <div class="grid-100 group-container">
+  
       {% for group in groups %}
       <a href="{% url 'mineralsearch:group' group=group %}" {% if groupquery == group %}class="active"
         {% endif %}>{{ group }}</a>
       {% endfor %}
+  
+      
     </div>
     <!-- /filtering by group -->
 

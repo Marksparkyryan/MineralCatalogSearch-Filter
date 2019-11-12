@@ -8,17 +8,6 @@ from .forms import MineralSearchForm
 from .models import Mineral
 
 
-GROUPS = ['Silicates', 'Oxides', 'Sulfates', 'Sulfides', 'Carbonates',
-          'Halides', 'Sulfosalts', 'Phosphates', 'Borates', 'Organic Minerals',
-          'Arsenates', 'Native Elements', 'Other', ]
-
-COLOURS = ['Blue', 'Yellow', 'Green', 'Red', 'Orange', 'Pink', 'Purple', 
-'White', 'Black', 'Gray', 'Brown', 'Grey', 'Violet', 'Bronze', 'Gold' ]
-
-ALPHABET = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm',
-            'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z']
-
-
 def detail(request, pk):
     """View that accepts a mineral pk and displays the details of that
     particular mineral. Returns 404 if mineral doesn't exist.
@@ -27,13 +16,11 @@ def detail(request, pk):
     fields = mineral.fields_lower
     context = {
         'mineral': mineral,
-        'pagination_list': ALPHABET,
         'form': MineralSearchForm(),
-        'groups': GROUPS,
         'fields': fields,
-        'colours': COLOURS,
     }
     return render(request, 'mineralsearchapp/detail.html', context)
+
 
 def random(request):
     """View that returns a random mineral and its details
@@ -48,11 +35,8 @@ def random(request):
     fields = mineral.fields_lower
     context = {
         'mineral': mineral,
-        'pagination_list': ALPHABET,
         'form': MineralSearchForm(),
-        'groups': GROUPS,
         'fields': fields,
-        'colours': COLOURS,
     }
     return render(request, 'mineralsearchapp/detail.html', context)
 
@@ -71,14 +55,12 @@ def letter(request, letter='a'):
     )
     form = MineralSearchForm()
     context = {
-        'minerals': minerals,
-        'pagination_list': ALPHABET,
-        'form': form,
-        'groups': GROUPS,
-        'alphaquery': letter,
-        'colours': COLOURS,
+        'minerals': minerals, 
+        'form': form,  
+        'alphaquery': letter,    
     }
     return render(request, 'mineralsearchapp/index.html', context)
+
 
 def search(request):
     """View that accepts q query from the MineralSearchForm and filters
@@ -117,10 +99,7 @@ def search(request):
             )
             context = {
                 'minerals': minerals,
-                'pagination_list': ALPHABET,
                 'form': form,
-                'groups': GROUPS,
-                'colours': COLOURS,
             }
             return render(request, 'mineralsearchapp/index.html', context)
     minerals = Mineral.objects.values(
@@ -131,10 +110,7 @@ def search(request):
     )
     context = {
             'minerals': minerals,
-            'pagination_list': ALPHABET,
             'form': form,
-            'groups': GROUPS,
-            'colours': COLOURS,
         }
     return render(request, 'mineralsearchapp/index.html', context)
 
@@ -151,13 +127,11 @@ def group(request, group):
     )
     context = {
         'minerals': minerals,
-        'pagination_list': ALPHABET,
         'form': MineralSearchForm(),
-        'groups': GROUPS,
         'groupquery': group,
-        'colours': COLOURS,
     }
     return render(request, 'mineralsearchapp/index.html', context)
+
 
 def colour(request, colour):
     """View that accepts a colour query and returns a queryset of 
@@ -171,11 +145,8 @@ def colour(request, colour):
     )
     context = {
         'minerals': minerals,
-        'pagination_list': ALPHABET,
         'form': MineralSearchForm(),
-        'groups': GROUPS,
         'colourquery': colour,
-        'colours': COLOURS,
     }
     return render(request, 'mineralsearchapp/index.html', context)
     
