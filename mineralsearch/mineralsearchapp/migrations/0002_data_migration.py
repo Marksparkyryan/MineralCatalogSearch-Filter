@@ -33,7 +33,6 @@ class Migration(migrations.Migration):
                             newkey = key.replace(' ', '_')
                             mineral[newkey] = mineral.pop(key)
                     mineral['name'] = mineral['name'].lower()
-                    print(mineral['name']) 
                     try:
                         with transaction.atomic():
                             Mineral.objects.create(**mineral)
