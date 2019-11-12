@@ -15,17 +15,16 @@ ALPHABET = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm',
             'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z']
 
 
-@register.simple_tag
+@register.assignment_tag
 def groups():
     return GROUPS
 
 
-@register.simple_tag
+@register.assignment_tag
 def colours():
     return COLOURS
 
 
-@register.simple_tag
+@register.assignment_tag
 def alphabet():
     return ALPHABET
-    

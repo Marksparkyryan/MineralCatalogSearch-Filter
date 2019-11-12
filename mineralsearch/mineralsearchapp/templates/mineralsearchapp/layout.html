@@ -34,6 +34,7 @@
     <div class="grid-100">
       <div class="search-container">
         <div class="pagin-list">
+          {% alphabet as alphabet %}
           {% for letter in alphabet %}
           <a href="{% url 'mineralsearch:letter' letter %}" {% if alphaquery == letter %} class="active"
             {% endif %}>{{ letter }}</a>
@@ -62,7 +63,7 @@
 
     <!-- filtering by group -->
     <div class="grid-100 group-container">
-  
+      {% groups as groups %}
       {% for group in groups %}
       <a href="{% url 'mineralsearch:group' group=group %}" {% if groupquery == group %}class="active"
         {% endif %}>{{ group }}</a>
@@ -74,6 +75,7 @@
 
     <!-- filtering by colour -->
     <div class="grid-100 colour-container">
+      {% colours as colours %}
       {% for colour in colours %}
       <a href="{% url 'mineralsearch:colour' colour=colour %}" {% if colourquery == colour %}class="active"
         {% endif %}>{{ colour }}</a>
