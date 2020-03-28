@@ -49,7 +49,6 @@ class Migration(migrations.Migration):
             print("\n")
 
     dependencies = [
-        ('mineralsearchapp', '0001_initial'),
     ]
 
     operations = [
