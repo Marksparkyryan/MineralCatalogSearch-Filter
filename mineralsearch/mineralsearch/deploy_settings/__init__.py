@@ -1,10 +1,15 @@
-import os
+import dj_database_url
 from mineralsearch.settings import *
 
 DEBUG = False
 TEMPLATE_DEBUG = DEBUG
+
 ALLOWED_HOSTS = [
     '.herokuapp.com',
     'localhost',
     ]
+
 SECRET_KEY = get_env_variable('SECRET_KEY')
+
+db_from_env = dj_database_url.config()
+DATABASES['default'].update(db_from_env)
