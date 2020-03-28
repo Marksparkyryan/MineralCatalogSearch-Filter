@@ -62,24 +62,31 @@
     {% endblock %}
 
     <!-- filtering by group -->
-    <div class="grid-100 group-container">
-      {% groups as groups %}
-      {% for group in groups %}
-      <a href="{% url 'mineralsearch:group' group=group %}" {% if groupquery == group %}class="active"
-        {% endif %}>{{ group }}</a>
-      {% endfor %}
-  
-      
+    <div class="group-container-wrapper">
+        <div class="grid-100">
+            <div class="group-container">
+                {% groups as groups %}
+                {% for group in groups %}
+                <a href="{% url 'mineralsearch:group' group=group %}" {% if groupquery == group %}class="active"
+                  {% endif %}>{{ group }}</a>
+                {% endfor %}
+            </div>
+          </div>
     </div>
+    
     <!-- /filtering by group -->
 
     <!-- filtering by colour -->
-    <div class="grid-100 colour-container">
-      {% colours as colours %}
-      {% for colour in colours %}
-      <a href="{% url 'mineralsearch:colour' colour=colour %}" {% if colourquery == colour %}class="active"
-        {% endif %}>{{ colour }}</a>
-      {% endfor %}
+    <div class="colour-container-wrapper">
+        <div class="grid-100">
+            <div class="colour-container">
+                {% colours as colours %}
+                {% for colour in colours %}
+                <a href="{% url 'mineralsearch:colour' colour=colour %}" {% if colourquery == colour %}class="active"
+                  {% endif %}>{{ colour }}</a>
+                {% endfor %}
+            </div>  
+          </div>
     </div>
     <!-- /filtering by colour-->
   </div>
