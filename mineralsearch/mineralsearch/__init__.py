@@ -7,4 +7,4 @@ ALLOWED_HOSTS = [
     '.herokuapp.com',
     'localhost',
     ]
-SECRET_KEY = os.environ.get('SECRET_KEY')
+SECRET_KEY = get_env_variable('SECRET_KEY')
