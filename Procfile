@@ -1,1 +1,1 @@
-web: --pythonpath MineralSearch.mineralsearch mineralsearch.wsgi --log-file -
+web: mineralsearch mineralsearch.wsgi --log-file -
