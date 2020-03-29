@@ -193,7 +193,7 @@ table, p, ul { margin-bottom: 2.5rem; }
 
 .mineral__container { margin-bottom: 2.5rem; box-shadow: -.25rem .25rem 1rem rgba(0,0,0,0.1); background-color: #fff; border-radius: 6px; list-style: none; padding: 3px 0; text-align: center; }
 .mineral__name { display: block; width: 100%; margin: 0; font-size: 24px; padding: 30px 0 30px 0; }
-.mineral__image { display: block; margin: 0 auto; border: solid 2px #ee7f7f; }
+.mineral__image { display: block; margin: 0 auto; border: solid 2px #281c33; }
 .mineral__image-bg { background-color: white; padding: 20px 0; }
 .mineral__caption { font-size: 12px; font-style: italic; padding: 10px 0 0 0; margin: 0; }
 .mineral__table { font-size: 14px; color: #384033; }
@@ -223,6 +223,7 @@ table, p, ul { margin-bottom: 2.5rem; }
   padding: 15px 15px;   
   box-shadow: -.25rem .25rem 1rem rgba(0,0,0,0.1);
   border-radius: 6px;
+  background-color: white;
 }
 
 .group-container a {
@@ -272,6 +273,7 @@ table, p, ul { margin-bottom: 2.5rem; }
   padding: 15px 15px; 
   box-shadow: -.25rem .25rem 1rem rgba(0,0,0,0.1);
   border-radius: 6px;
+  background-color: white;
 }
 
 .colour-container a {
